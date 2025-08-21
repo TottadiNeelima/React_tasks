@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+
+    <h1 id="school-heading"></h1>
+
+    <div class="main">
+        <div id="info"></div>
+        <div id="contacts"><strong>Contact Details</strong></div>
+    </div>
+
+    <div class="main1">
+        <div class="student-div">
+            <label for="students">Select Grade</label>
+            <select name="students" id="students">
+                <option>-----select grade-----</option>
+            </select>
+        </div>
+        <div class="student-details">
+        </div>
+    </div>
+
+    <script>
+        main();
+
+        async function main() {
+            const student = await studentData();
+
+            const studentHeading = document.querySelector("#school-heading");
+            const info = document.querySelector("#info");
+            const contact = document.getElementById("contacts");
+            let dropdown = document.getElementById("students");
+            let details = document.querySelector(".student-details");
+
+            studentHeading.innerHTML = student.school_name;
+            info.innerHTML += `<h3>President: ${student.info.president}</h3>`;
+            info.innerHTML += `<h3>Address: ${student.info.address}</h3>`;
+            contact.innerHTML += `<p>${student.info.contacts.email}</p>`;
+            contact.innerHTML += `<p>${student.info.contacts.tel}</p>`;
+
+            student.students.forEach(s => {
+                let option = document.createElement("option");
+                option.value = s.id;
+                option.textContent = s.id;
+                dropdown.appendChild(option);
+            });
+
+            dropdown.addEventListener("change", function () {
+                let selected = student.students.find(s => s.id === this.value);
+                if (selected) {
+                    details.innerHTML = `
+                        <h4>Name: ${selected.name}</h4>
+                        <p>Maths: ${selected.grade.math}</p>
+                        <p>Physics: ${selected.grade.physics}</p>
+                        <p>Chemistry: ${selected.grade.chemistry}</p>
+                    `;
+                } else {
+                    details.innerHTML =    `<h5>Students details displayed here.</h5>`;
+                }
+            });
+        }
+
+        async function studentData() {
+            const res = await fetch("student.json");
+            const data = await res.json();
+            return data;
+        }
+    </script>
+
+</body>
+
+</html>

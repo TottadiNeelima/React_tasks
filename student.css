@@ -1,0 +1,51 @@
+#school-heading {
+    text-align: center;
+    background-color: #4CAF50; /* green background */
+    color: white; /* text color */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.main {
+    display: flex;
+    margin-left: 300px;
+    background-color: #f0f8ff; /* light blue background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.main1 {
+    display: flex;
+    margin-left: 300px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.student-div {
+    width: 50%;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.student-details {
+    width: 50%;
+    background-color: #e0ffff; /* light cyan background */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#info {
+    width: 50%;
+    background-color: #f5f5dc; /* beige background */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#contacts {
+    margin-top: 10px;
+    width: 15%;
+    padding: 10px;
+    border-radius: 8px;
+}

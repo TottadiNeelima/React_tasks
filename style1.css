@@ -1,0 +1,15 @@
+@media all {
+        .main {
+            text-align:center;
+            margin: auto;
+            width: fit-content;
+            color: black;
+            }  
+    }
+body{
+    height: 100vh;
+    display: flex ;
+    margin:auto;
+    box-sizing: border-box;
+    background-color: lightblue;
+}
